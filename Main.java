@@ -18,7 +18,6 @@ public class Main {
         sc.close();
 
         TreeSet<Integer> activos = jugadoresActivos(servidorA, servidorB, baneados);
-
         System.out.println(activos.size());
         StringBuilder sb = new StringBuilder();
         for (int id : activos) sb.append(id).append(' ');
@@ -29,7 +28,21 @@ public class Main {
     public static TreeSet<Integer> jugadoresActivos(int[] servidorA,
                                                      int[] servidorB,
                                                      int[] baneados) {
-        // TODO: implemente este método
-        return new TreeSet<>();
+        
+        TreeSet<Integer> activos = new TreeSet<>();
+        
+        for(int id: servidorA){
+            activos.add(id);
+        }
+
+        for(int id: servidorB){
+            activos.add(id);
+        }
+
+        for(int id: baneados){
+            activos.remove(id);
+        }
+
+        return activos;
     }
 }
